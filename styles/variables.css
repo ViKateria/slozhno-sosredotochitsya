@@ -2,3 +2,15 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+
+
+:root {
+  --accent-color: #FF0070;
+  --main-text-color: #F1B2CE; 
+  --titles-color: #000028;
+  --button-and-rectangles-color: #FF0070;
+  --focus-color: #DB00FF;
+  --bg-color: #00183F;
+  --bg-img: url(../images/cover-image-dark.png);
+  --visibility: visible;
+}
