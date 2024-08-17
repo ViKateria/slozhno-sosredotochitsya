@@ -13,7 +13,6 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  inline-size: 375px;
   block-size: 100%;
   background-size: cover;
   background-color: var(--bg-color);
@@ -27,20 +26,18 @@
 
 .header {
   display: grid;
-  grid-template-rows: 183px 1fr 1fr;
-  gap: 55px;
-  height: 100vh;
-  min-height: 668px;
+  grid-template-rows: 1fr min-content 1fr;
+  align-items: center;
+  block-size: max(668px, 100vh);
   position: relative;
-  padding-inline-start: 10px;
-  padding-inline-end: 10px;
+  padding: 10px;
   margin-block-end: 40px;
 }
 
 .header::after {
   content: "";
-  width: 25px;
-  height: 25px;
+  inline-size: 25px;
+  block-size: 25px;
   border-inline-end: 1px solid var(--button-and-rectangles-color);
   border-block-start: 1px solid var(--button-and-rectangles-color);
   position: absolute;
@@ -50,8 +47,8 @@
 
 .header::before {
   content: "";
-  width: 25px;
-  height: 25px;
+  inline-size: 25px;
+  block-size: 25px;
   border-inline-start: 1px solid var(--button-and-rectangles-color);
   border-block-end: 1px solid var(--button-and-rectangles-color);
   position: absolute;
@@ -76,8 +73,8 @@
 
 .header__rec-ellipse {
   background-color: var(--button-and-rectangles-color);
-  width: 9px;
-  height: 9px;
+  inline-size: 9px;
+  block-size: 9px;
   border-radius: 100%;
   box-shadow: 0 0 4px 2px var(--button-and-rectangles-color);
   margin-block-start: 8px;
@@ -89,28 +86,19 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 18px;
-  padding-block-start: 75px;
  /* display: flex;
   align-self: center;
   justify-content: end;*/
-  
 }
 
 .header__theme-menu-list {
   display: grid;
   justify-content: end; 
+  align-items: center;
 /* display: flex;
   flex-direction: column;
   align-items: flex-end;*/
   gap: 10px; 
-}
-
-.header__theme-menu-item {
-
- /* display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-end; */
 }
 
 .header__theme-menu-button {
@@ -119,7 +107,7 @@
   text-transform: lowercase;
   line-height: 18px;
   padding: 1.5px 13px;
-  min-height: 26px;
+  min-block-size: 26px;
 }
 
 .header__theme-menu-button:hover {
@@ -160,9 +148,9 @@
   text-align: left;
   color: var(--titles-color);
   background-color: var(--accent-color);
-  display: flex;
-  justify-content: right;
-  max-height: 117px;
+  justify-self: end;
+  max-block-size: 117px;
+  max-inline-size: 364px;
 }
 
 .title-decor {
@@ -187,14 +175,18 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
+  margin-block-end: 20px;
 }
 
 .article-subtitle {
-  margin-block-start: 20px;
   color: var(--titles-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 23.4px;
+}
+
+.article-subtitle:not(:first-of-type) {
+  margin-block-start: 20px;
 }
 
 .article-text {
@@ -232,20 +224,21 @@
   color: var(--titles-color);
 }
 
-.images-container {
+.gallery {
   margin-block-start: 10px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr),;
   gap: 10px;
 }
 
 .image {
-  width: 100%;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
 }
 
 .footer {
-  height: 100vh;
-  min-height: 668px;
+  block-size: max(668px, 100vh);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -254,8 +247,8 @@
 
 .footer::after {
   content: "";
-  width: 25px;
-  height: 25px;
+  inline-size: 25px;
+  block-size: 25px;
   border-inline-end: 1px solid var(--button-and-rectangles-color);
   border-block-start: 1px solid var(--button-and-rectangles-color);
   position: absolute;
@@ -265,11 +258,105 @@
 
 .footer::before {
   content: "";
-  width: 25px;
-  height: 25px;
+  inline-size: 25px;
+  block-size: 25px;
   border-inline-start: 1px solid var(--button-and-rectangles-color);
   border-block-end: 1px solid var(--button-and-rectangles-color);
   position: absolute;
   left: 10px;
   bottom: 10px;
+}
+
+
+
+
+@media (min-width: 768px) {
+  .header {
+    padding: 20px 20px 20px 0;
+    margin-block-end: 60px;
+  }
+  .header::after {
+    right: 20px;
+    top: 20px;
+  }
+  .header::before {
+    left: 20px;
+    bottom: 20px;
+  }
+  .header__rec {
+    right: 29px;
+    top: 20px;
+  }
+  .focuses {
+    font-size: 120px;
+    line-height: 99px;
+  }
+  .article {
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+  }
+  .article:not(:last-child) {
+    margin-block-end: 80px;
+  }
+  .article:last-child {
+    margin-block-end: 60px;
+  }
+  .article-title {
+    display: block;
+    max-inline-size: 236px;
+  }
+  .article_1 {
+    display: grid;
+    grid-template-columns: 6fr 11fr;
+    grid-template-rows: repeat(4, max-content);
+  }
+  .article_1 .article-title {
+    grid-column: 1 / 2;
+    grid-row: 1/5;
+  }
+  .article_3 {
+    display: grid;
+    grid-template-columns: 6fr 11fr;
+    grid-template-rows: repeat(4, max-content);
+  }
+  .article_3 .article-title {
+    grid-column: 1 / 2;
+    grid-row: 1/12;
+  }
+  .article_4 .article-subtitle {
+    margin-block-end: 20px;
+  }
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, max-content);
+    gap: 20px;
+  }
+  .image-sunset {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+  .image-ice-cream {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+  .image-tape {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
+  .image-books {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+  .image-street {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+  }
+  .footer::after {
+    right: 20px;
+    top: 20px;
+  }
+  .footer::before {
+    left: 20px;
+    bottom: 20px;
+  }
 }
