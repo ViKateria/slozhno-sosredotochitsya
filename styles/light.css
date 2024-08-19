@@ -12,7 +12,8 @@
   --accent-color: #FF8DCB;
   --main-text-color: #353430;
   --titles-color: #353430;
-  --button-and-rectangles-color: #353430;
+  --button-and-rectangles-color: rgb(53, 52, 48);
+  --button-opacity-color: rgb(53, 52, 48 / 0.4);
   --focus-color: #FFC2E6;
   --bg-color: #ffd0e5;
   --bg-img: url(../images/cover-image-light.png);
@@ -30,7 +31,8 @@
       --accent-color: #FF8DCB;
       --main-text-color: #353430;
       --titles-color: #353430;
-      --button-and-rectangles-color: #353430;
+      --button-and-rectangles-color: rgb(53, 52, 48);
+      --button-opacity-color: rgb(53, 52, 48 / 0.4);
       --focus-color: #FFC2E6;
       --bg-color: #ffd0e5;
       --bg-img: url(../images/cover-image-light.png);
