@@ -372,10 +372,6 @@
 
 
 @media (min-width: 1024px) {
-  .focuses {
-    font-size: 157px;
-    line-height: 129.53px;
-  }
   .header__theme-menu {
     display: block; 
     align-self: start; 
