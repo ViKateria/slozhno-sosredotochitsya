@@ -1,17 +1,5 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
-:root {
-  --accent-color: #FF0070;
-  --main-text-color: #F1B2CE; 
-  --titles-color: #000028;
-  --button-and-rectangles-color: #FF0070; 
-  --button-opacity-color: rgb(255, 0, 112 / 0.4);
-  --focus-color: #DB00FF;
-  --bg-color: #00183F;
-  --bg-img: url(../images/cover-image-dark.png);
-  --visibility: visible;
-}
-
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
   block-size: 100%;
@@ -35,7 +23,7 @@
   margin-block-end: 40px;
 }
 
-.header::after {
+.decorated-zone::after {
   content: "";
   inline-size: 25px;
   block-size: 25px;
@@ -46,7 +34,7 @@
   top: 10px;
 }
 
-.header::before {
+.decorated-zone::before {
   content: "";
   inline-size: 25px;
   block-size: 25px;
@@ -89,14 +77,14 @@
   line-height: 18px;
  /* display: flex;
   align-self: center;
-  justify-content: end;*/
+  justify-content: end; пробы, не обращать внимания*/ 
 }
 
 .header__theme-menu-list {
   display: grid; 
   justify-content: end;
  /* flex-direction: column;
-  align-items: flex-end;*/
+  align-items: flex-end; пробы, не обращать внимания*/
   gap: 10px; 
 }
 
@@ -129,6 +117,7 @@
 
 .header__theme-menu-button_active:hover {
   pointer-events: none;
+  outline: 1px solid var(--button-and-rectangles-color);
 }
 
 .focuses {
@@ -150,20 +139,19 @@
   justify-content: center;
 }
 
-.header__title {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 23.4px;
+.header__title-description {
   text-align: left;
-  color: var(--titles-color);
   background-color: var(--accent-color);
   justify-self: end;
-  max-block-size: 117px;
   max-inline-size: 364px;
 }
 
 .title-decor {
+  color: var(--titles-color);
   background-color: var(--accent-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23.4px;
 }
 
 .article {
@@ -189,9 +177,6 @@
 
 .article-subtitle {
   color: var(--titles-color);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 23.4px;
 }
 
 .article-subtitle:not(:first-of-type) {
@@ -232,9 +217,6 @@
 .article-advice {
   margin-top: 20px;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 23.4px;
-  color: var(--titles-color);
 }
 
 .gallery {
@@ -258,116 +240,113 @@
   position: relative;
 }
 
-.footer::after {
-  content: "";
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-end: 1px solid var(--button-and-rectangles-color);
-  border-block-start: 1px solid var(--button-and-rectangles-color);
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.footer::before {
-  content: "";
-  inline-size: 25px;
-  block-size: 25px;
-  border-inline-start: 1px solid var(--button-and-rectangles-color);
-  border-block-end: 1px solid var(--button-and-rectangles-color);
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-}
-
-
-
-
 @media (min-width: 768px) {
+
   .header {
     padding: 20px 20px 20px 0;
     margin-block-end: 60px;
   }
+
   .header::after {
     right: 20px;
     top: 20px;
   }
+
   .header::before {
     left: 20px;
     bottom: 20px;
   }
+
   .header__rec {
     right: 29px;
     top: 20px;
   }
+
   .focuses {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     line-height: 99px;
   }
+
   .article {
     padding-inline-start: 20px;
     padding-inline-end: 20px;
   }
+
   .article:not(:last-child) {
     margin-block-end: 80px;
   }
+
   .article:last-child {
     margin-block-end: 60px;
   }
+
   .article-title {
     display: block;
     max-inline-size: 236px;
   }
-  .article_1 {
+
+  .article_why {
     display: grid;
     grid-template-columns: 6fr 11fr;
-    grid-template-rows: repeat(4, max-content);
+    grid-template-rows: repeat(2, max-content);
   }
-  .article_1 .article-title {
+
+  .article_why .article-title {
     grid-column: 1 / 2;
-    grid-row: 1/5;
+    grid-row: 1/3;
   }
-  .article_3 {
+
+  .article_how {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: repeat(4, max-content);
+    grid-template-rows: repeat(6, max-content);
   }
-  .article_3 .article-title {
+
+  .article_how .article-title {
     grid-column: 1 / 2;
-    grid-row: 1/12;
+    grid-row: 1/7;
   }
-  .article_4 .article-subtitle {
+
+  .article_gallery .article-subtitle {
     margin-block-end: 20px;
   }
+
   .gallery {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, max-content);
     gap: 20px;
   }
+
   .image-sunset {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
   }
+
   .image-ice-cream {
     grid-column: 3 / 4;
     grid-row: 1 / 3;
   }
+
   .image-tape {
     grid-column: 1 / 2;
     grid-row: 2 / 4;
   }
+
   .image-books {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
   }
+
   .image-street {
     grid-column: 2 / 4;
     grid-row: 3 / 4;
   }
+
   .footer::after {
     right: 20px;
     top: 20px;
   }
+
   .footer::before {
     left: 20px;
     bottom: 20px;
@@ -376,28 +355,34 @@
 
 
 @media (min-width: 1024px) {
+
   .header__theme-menu {
     display: block; 
     align-self: start; 
   }
+
   .header__theme-menu-list {
     display: flex; 
     justify-content: center;
   }
-  .article_2 {
+
+  .article_what {
     display: grid;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto;
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
     gap: 20px;
   }
-  .article_2 .article-title {
+
+  .article_what .article-title {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
   }
-  .article_2 .article-subtitle {
+
+  .article_what .article-subtitle {
     margin-block-start: 0;
   }
+
   .article-title {
     display: block;
     max-inline-size: 315px;
